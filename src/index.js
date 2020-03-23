@@ -5,6 +5,7 @@ import Info from "./info";
 import Searchengine from "./searchengine";
 import Forecast from "./forecast";
 import Api from "./Api";
+import "./index.css";
 
 import Weather from "./Api";
 const rootElement = document.getElementById("root");
