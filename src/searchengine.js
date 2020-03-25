@@ -2,7 +2,7 @@ import React from "react";
 //import "/src/styles.css";
 //import goButton from "./Api";
 
-export default function Searchengine() {
+export default function Searchengine(props) {
     let searchData = {
         location: "Tomar",
         geoTime: "terça 22:00 GMT"
@@ -11,6 +11,8 @@ export default function Searchengine() {
     function goButton(event) {
         alert(`bolas`);
     }
+
+//    onClick = { goButton }
 
     return (
         <div className="container table-info">
@@ -26,7 +28,7 @@ export default function Searchengine() {
                     <button
                         type="button"
                         className="btn btn-outline-info"
-                        onClick={goButton}
+                        onClick={props.jhandler}
                     >
                         Go!
           </button>

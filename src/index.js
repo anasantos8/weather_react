@@ -1,40 +1,47 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import Titulo from "./titulo";
 import Info from "./info";
 import Searchengine from "./searchengine";
 import Forecast from "./forecast";
-import Api from "./Api";
 import "./index.css";
 
-import Weather from "./Api";
 const rootElement = document.getElementById("root");
-ReactDOM.render
 
-    (<div className="container">
-        <Titulo />
-        <div className="row">
-            <div className="col">
-                <Searchengine />
+function RootApp(props) {
+    
+//let [temperae, setTemture] = useState(0);
+   function setData(event) {
+       event.preventDefault();
+         alert('teste');
+   }
+    
+    
+    
+    return ReactDOM.render
+        (<div className="container">
+            <Titulo />
+            <div className="row">
+                <div className="col">
+                    <Searchengine jhandler={setData} />
+                </div>
             </div>
-        </div>
-        <div className="row">
-            <div className="col">
-                <Info />
+            <div className="row">
+                <div className="col">
+                    <Info />
+                </div>
             </div>
-        </div>
-        <div className="row">
-            <div className="col">
-                <Forecast />
+            <div className="row">
+                <div className="col">
+                    <Forecast />
+                </div>
             </div>
-        </div>
-        <a href="https://github.com/anasantos8/weather_react">Open Source Code</a>
-        <a> by Ana Santos</a>
-    </div>,
-        rootElement
-    );
+            <a href="https://github.com/anasantos8/weather_react">Open Source Code by Ana Santos</a>
+        </div>,
+            rootElement
+        );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-//serviceWorker.unregister();
+}
+
+RootApp();
+
