@@ -1,18 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
 //import "/src/styles.css";
 //import goButton from "./Api";
 
 export default function Searchengine(props) {
+    const [city, setCity] = useState("");
+
+function setCityName(event) {
+    setCity(event.target.value);
+}
+
+
     let searchData = {
         location: "Tomar",
         geoTime: "terça 22:00 GMT"
     };
 
     function goButton(event) {
-        alert(`bolas`);
+        event.preventDefault();
+        props.setCity(city);
     }
 
-//    onClick = { goButton }
+//    if (props.dataReturned != null) 
+//    props.dataReturned.name;
 
     return (
         <div className="container table-info">
@@ -23,12 +32,13 @@ export default function Searchengine(props) {
                         className="form-control"
                         id="form-text"
                         placeholder="Where you want to go?"
+                        onChange={setCityName}
                     />
 
                     <button
                         type="button"
                         className="btn btn-outline-info"
-                        onClick={props.jhandler}
+                        onClick={goButton}
                     >
                         Go!
           </button>
@@ -39,8 +49,8 @@ export default function Searchengine(props) {
             </div>
             <div className="row">
                 <div className="col alignright">
-                    <h2>{searchData.location}</h2>
-                    <h3>{searchData.geoTime}</h3>
+                    <h2>{props.dataReturned.city}</h2>
+                    <h3>{props.dataReturned.timeDate}</h3>
                 </div>
             </div>
         </div>
