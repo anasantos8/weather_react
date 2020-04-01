@@ -22,15 +22,15 @@ export default function Forecast(props) {
 
 //    let hour0 = "";
 //    if (props.ready === true) hour0 = getHours(new Date(props.dataReturned.data.list[0].dt * 1000)); let hourx = new Date();
-    let forecastTempMax = 0;
-    let forecastTempMin = 0;
+ //   let forecastTempMax = 0;
+   // let forecastTempMin = 0;
 
     let hour1 = "";
     let minTemp1 = "";
     let maxTemp1 = "";
     let icon1 = Clouds;
     if (props.dataReturned.ready === true) {
-        hour1 = getHours(new Date(props.dataReturned.data.list[1].dt * 1000));
+        hour1 = getHours(new Date((props.dataReturned.data.list[1].dt - props.dataReturned.data.city.timezone)* 1000));
         minTemp1 = Math.round(props.dataReturned.data.list[1].main.temp_min);
         maxTemp1 = Math.round(props.dataReturned.data.list[1].main.temp_max);
         icon1 = `http://openweathermap.org/img/wn/${props.dataReturned.data.list[1].weather[0].icon}@2x.png`;
@@ -40,7 +40,7 @@ export default function Forecast(props) {
     let maxTemp2 = "";
     let icon2 = Clouds;
     if (props.dataReturned.ready === true) {
-        hour2 = getHours(new Date(props.dataReturned.data.list[2].dt * 1000));
+        hour2 = getHours(new Date((props.dataReturned.data.list[2].dt - props.dataReturned.data.city.timezone)* 1000));
         minTemp2 = Math.round(props.dataReturned.data.list[2].main.temp_min);
         maxTemp2 = Math.round(props.dataReturned.data.list[2].main.temp_max);
         icon2 = `http://openweathermap.org/img/wn/${props.dataReturned.data.list[2].weather[0].icon}@2x.png`;
@@ -50,7 +50,7 @@ export default function Forecast(props) {
     let maxTemp3 = "";
     let icon3 = Clouds;
     if (props.dataReturned.ready === true) {
-        hour3 = getHours(new Date(props.dataReturned.data.list[3].dt * 1000));
+        hour3 = getHours(new Date((props.dataReturned.data.list[3].dt - props.dataReturned.data.city.timezone) * 1000));
         
         minTemp3 = Math.round(props.dataReturned.data.list[3].main.temp_min);
         maxTemp3 = Math.round(props.dataReturned.data.list[3].main.temp_max);

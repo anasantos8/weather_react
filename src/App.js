@@ -7,15 +7,14 @@ import axios from "axios";
 
 export default function App(props){
 
-    let [weatherData, setWeatherData] = useState({ready: false});
+    let [weatherData, setWeatherData] = useState({ ready: false });
     let localCityName = "";
 
+    
 function setResponse(response){
-
-//    date: new Date((response.data.list[0].dt - response.data.city.timezone) * 1000),
     setWeatherData({
         ready: true,
-        date: new Date((response.data.list[0].dt - response.data.city.timezone - 7200 ) * 1000),
+        date: new Date((response.data.list[0].dt - response.data.city.timezone ) * 1000),
         city: response.data.city.name,
         data: response.data });
 
