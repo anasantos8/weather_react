@@ -8,6 +8,10 @@ function setCityName(event) {
     setCity(event.target.value);
 }
 
+    function setCurrentLocation(event)
+    {event.preventDefault();
+        props.setCurrentLocation ()}
+
     function goButton(event) {
         event.preventDefault();
         props.setCity(city);
@@ -15,6 +19,7 @@ function setCityName(event) {
 
     let theCity = "You're in ...";
     let theDate = "And now it is ...";
+   
 if ( props.dataReturned.ready === true ) {
     theCity = props.dataReturned.city;
 
@@ -53,7 +58,7 @@ if ( props.dataReturned.ready === true ) {
                         className="form-control"
                         id="form-text"
                         placeholder="Where you want to go?"
-                        onChange={setCityName}
+                        onChange={setCityName} 
                     />
 
                     <button
@@ -63,7 +68,9 @@ if ( props.dataReturned.ready === true ) {
                     >
                         Go!
           </button>
-                    <button type="click" className="btn btn-outline-info">
+                    <button type="click" className="btn btn-outline-info" 
+                        onClick={setCurrentLocation}>
+                        
                         Current Location
           </button>
                 </div>

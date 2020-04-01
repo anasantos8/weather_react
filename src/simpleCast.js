@@ -4,16 +4,7 @@ import Clouds from "./images/transparent_16x16.png";
 
 export default function SimpleCast(castData) {
 
-/*
-    <img
-        src={localIcon}
-        className="img-fluid"
-        alt="weather icon"
-        id="icon"
-    />
-*/
 
-//    <i className="icon" />
 
     return (
         <div className="col">
