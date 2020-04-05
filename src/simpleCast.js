@@ -1,23 +1,29 @@
 import React from "react";
-//import "/src/styles.css";
-import Clouds from "./images/transparent_16x16.png";
 
 export default function SimpleCast(castData) {
 
+    function showCelsius(event) {
+        event.preventDefault();
+        castData.setCelsius();
+    }
 
+    function showFahrenheit(event) {
+        event.preventDefault();
+        castData.setFarenheit();
+    }
 
     return (
         <div className="col">
             <div className="card border-info mb-3">
-                <div className="card-header">{castData.localHour}</div>
+                <div className="card-header">{castData.data.hour}</div>
                 <div className="card-icon-center" >
                 <img
-                    src={castData.icon}
+                    src={castData.data.icon}
                     className="img-fluid"
                     alt="weather icon"
                     /></div>
                 <p className="card-text">
-                    max:{castData.maxTemp}/min:{castData.minTemp}
+                    max:{castData.data.maxTemp}/min:{castData.data.minTemp}  [<a href="/" onClick={showCelsius}>ºC</a> | <a href="/" onClick={showFahrenheit}>ºF</a>]
                 </p>
             </div>
         </div>

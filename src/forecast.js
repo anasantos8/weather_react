@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 //import "/src/styles.css";
 import Child from "./images/asianchild.png";
 import SimpleCast from "./simpleCast";
 import Clouds from "./images/transparent_16x16.png";
 
 export default function Forecast(props) {
+
 
     function getHours(Tdate) {
 
@@ -59,15 +60,182 @@ export default function Forecast(props) {
 
 
 
+    /*
+    setData({
+        forecast: [
+            {
+                hour: props.data.forecast[0].hour,
+                minTemp: Math.round(props.dataReturned.data.list[1].main.temp_min),
+                maxTemp: Math.round(props.dataReturned.data.list[1].main.temp_max),
+                icon: props.data.forecast[0].icon
+            },
+            {
+                hour: props.data.forecast[1].hour,
+                minTemp: Math.round(props.dataReturned.data.list[2].main.temp_min),
+                maxTemp: Math.round(props.dataReturned.data.list[2].main.temp_max),
+                icon: props.data.forecast[1].icon
+            },
+            {
+                hour: props.data.forecast[2].hour,
+                minTemp: Math.round(props.dataReturned.data.list[3].main.temp_min),
+                maxTemp: Math.round(props.dataReturned.data.list[3].main.temp_max),
+                icon: props.data.forecast[2].icon
+            }]
+    });
+
+    setData({
+        forecast: [
+            {
+                hour: props.data.forecast[0].hour,
+                minTemp: (Math.round(props.dataReturned.data.list[1].main.temp_min) * 9 / 5) + 32,
+                maxTemp: (Math.round(props.dataReturned.data.list[1].main.temp_max) * 9 / 5) + 32,
+                icon: props.data.forecast[0].icon
+            },
+            {
+                hour: props.data.forecast[1].hour,
+                minTemp: (Math.round(props.dataReturned.data.list[2].main.temp_min) * 9 / 5) + 32,
+                maxTemp: (Math.round(props.dataReturned.data.list[2].main.temp_max) * 9 / 5) + 32,
+                icon: props.data.forecast[1].icon
+            },
+            {
+                hour: props.data.forecast[2].hour,
+                minTemp: (Math.round(props.dataReturned.data.list[3].main.temp_min) * 9 / 5) + 32,
+                maxTemp: (Math.round(props.dataReturned.data.list[3].main.temp_max) * 9 / 5) + 32,
+                icon: props.data.forecast[2].icon
+            }]
+    });
+
+
+    setData({
+        forecast: [
+            {
+                hour: props.data.forecast[0].hour,
+                minTemp: props.data.forecast[0].minTemp,
+                maxTemp: props.data.forecast[0].maxTemp,
+                icon: props.data.forecast[0].icon
+            },
+            {
+                hour: props.data.forecast[1].hour,
+                minTemp: props.data.forecast[1].minTemp,
+                maxTemp: props.data.forecast[1].maxTemp,
+                icon: props.data.forecast[1].icon
+            },
+            {
+                hour: props.data.forecast[2].hour,
+                minTemp: props.data.forecast[2].minTemp,
+                maxTemp: props.data.forecast[2].maxTemp,
+                icon: props.data.forecast[2].icon
+            }]
+    });
+
+    */
+
+//    <SimpleCast localHour={hour1} minTemp={minTemp1} maxTemp={maxTemp1} icon={icon1} />
+//    <SimpleCast localHour={hour2} minTemp={minTemp2} maxTemp={maxTemp2} icon={icon2} />
+//    <SimpleCast localHour={hour3} minTemp={minTemp3} maxTemp={maxTemp3} icon={icon3} />
+
+
+    function setCelsius0(event) {
+        if (props.dataReturned.ready === true)
+        props.setData({
+            forecast: [
+                {
+                    hour: props.data.forecast[0].hour,
+                    minTemp: Math.round(props.dataReturned.data.list[1].main.temp_min),
+                    maxTemp: Math.round(props.dataReturned.data.list[1].main.temp_max),
+                    icon: props.data.forecast[0].icon
+                },
+                props.data.forecast[1],
+                props.data.forecast[2]]
+        });
+
+    }
+    function setFarenheit0(event) {
+        if (props.dataReturned.ready === true)
+        props.setData({
+            forecast: [
+                {
+                    hour: props.data.forecast[0].hour,
+                    minTemp: Math.round((props.dataReturned.data.list[1].main.temp_min * 9 / 5) + 32),
+                    maxTemp: Math.round((props.dataReturned.data.list[1].main.temp_max * 9 / 5) + 32),
+                    icon: props.data.forecast[0].icon
+                },
+                props.data.forecast[1],
+                props.data.forecast[2]]
+        });
+
+    }
+
+    function setCelsius1(event) {
+        if (props.dataReturned.ready === true)
+            props.setData({
+                forecast: [
+                    props.data.forecast[0],
+                    {
+                        hour: props.data.forecast[1].hour,
+                        minTemp: Math.round(props.dataReturned.data.list[2].main.temp_min),
+                        maxTemp: Math.round(props.dataReturned.data.list[2].main.temp_max),
+                        icon: props.data.forecast[1].icon
+                    },
+                    props.data.forecast[2]]
+            });
+
+    }
+    function setFarenheit1(event) {
+        if (props.dataReturned.ready === true)
+            props.setData({
+                forecast: [
+                    props.data.forecast[0],
+                    {
+                        hour: props.data.forecast[1].hour,
+                        minTemp: Math.round((props.dataReturned.data.list[2].main.temp_min * 9 / 5) + 32),
+                        maxTemp: Math.round((props.dataReturned.data.list[2].main.temp_max * 9 / 5) + 32),
+                        icon: props.data.forecast[1].icon
+                    },
+                    props.data.forecast[2]]
+            });
+
+    }
+
+    function setCelsius2(event) {
+        if (props.dataReturned.ready === true)
+            props.setData({
+                forecast: [
+                    props.data.forecast[0],
+                    props.data.forecast[1],
+                    {
+                        hour: props.data.forecast[0].hour,
+                        minTemp: Math.round(props.dataReturned.data.list[3].main.temp_min),
+                        maxTemp: Math.round(props.dataReturned.data.list[3].main.temp_max),
+                        icon: props.data.forecast[0].icon
+                    }]
+            });
+
+    }
+    function setFarenheit2(event) {
+        if (props.dataReturned.ready === true)
+            props.setData({
+                forecast: [
+                    props.data.forecast[0],
+                    props.data.forecast[1],
+                    {
+                        hour: props.data.forecast[2].hour,
+                        minTemp: Math.round((props.dataReturned.data.list[3].main.temp_min * 9 / 5) + 32),
+                        maxTemp: Math.round((props.dataReturned.data.list[3].main.temp_max * 9 / 5) + 32),
+                        icon: props.data.forecast[2].icon
+                    }]
+            });
+
+    }
     return (
         <div className="container table-info">
             <div className="row">
                 <div className="col-8">
                     <h3>And today will be...</h3>
                     <div>
-                        <SimpleCast localHour={hour1} minTemp={minTemp1} maxTemp={maxTemp1} icon={icon1} />
-                        <SimpleCast localHour={hour2} minTemp={minTemp2} maxTemp={maxTemp2} icon={icon2} />
-                        <SimpleCast localHour={hour3} minTemp={minTemp3} maxTemp={maxTemp3} icon={icon3} />
+                        <SimpleCast data={props.data.forecast[0]} setCelsius={setCelsius0} setFarenheit={setFarenheit0} />
+                        <SimpleCast data={props.data.forecast[1]} setCelsius={setCelsius1} setFarenheit={setFarenheit1} />
+                        <SimpleCast data={props.data.forecast[2]} setCelsius={setCelsius2} setFarenheit={setFarenheit2} />
                     </div>
                 </div>
                 <div className="col-4">
